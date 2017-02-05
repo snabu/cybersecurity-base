@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Messages</title>
+</head>
+<body>
+
+
+<form action="#" th:action="@{/messages/{id}/modify(id=${message.id})}" method="POST">
+    <p><label for="subject">Subject</label>: <input type="text" name="subject" th:value= "${message.subject}" id="subject"/></p>
+    <p><label for="message">Message</label>: <input type="text" name="message" th:value= "${message.message}" id="message"/></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
+
+
+</body>
+</html>

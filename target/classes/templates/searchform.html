@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Search</title>
+</head>
+<body>
+
+<h2>Search</h2>
+<form id = "searchForm" action="#" th:action="@{/search}" method="GET">
+    <p><label for="searchterm">search</label>: <input type="text"  placeholder="Searchterm" name="searchterm" id="searchterm" required=""/></p>
+        <p>
+        <input type="submit" value="Search" />
+    <input type='submit' value='Home' onclick="homeClicked(this)"/>
+        </p>
+</form>
+
+<script>
+    function homeClicked(element) {
+        var removeItem = document.getElementById("searchterm");
+        removeItem.parentNode.removeChild(removeItem);
+        searchForm.action='/home';
+    }
+</script>
+
+
+</body>
+
+</html>

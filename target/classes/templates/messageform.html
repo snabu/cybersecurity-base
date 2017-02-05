@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Create message form</title>
+    </head>
+    <body>
+
+        <h1>Create new message</h1>
+
+        <form id = "messageForm" action="#" th:action="@{/createmessage}" method="POST">
+
+            <p><label for="subject">Recipient</label></p>
+            <select form="messageForm" id = "recipient" name = "recipient">
+                <option value="">Select recipient</option>
+                <option th:each="recipient : ${recipients}"
+                        th:value="${recipient.username}"
+                        th:text="${recipient.username}"></option>
+            </select>
+            <p><label for="subject">Subject</label></p>
+            <textarea placeholder="Enter subject here" cols="86" rows ="1" id = "subject" name="subject" form="messageForm"></textarea>
+            <p><label for="message">Message</label></p>
+            <textarea placeholder="Enter message here" cols="86" rows ="5" id="message" name="message" form="messageForm"></textarea>
+            <p><input type="submit" value="Submit" />
+            <input type='submit' value='Home' onclick="homeClicked(this)"/>
+            </p>
+        </form>
+
+
+        <p></p>
+    </body>
+<script>
+    function homeClicked(element) {
+        document.getElementById("messageForm").method = "get";
+        var removeItem = document.getElementById("subject");
+        removeItem.parentNode.removeChild(removeItem);
+        removeItem = document.getElementById("message");
+        removeItem.parentNode.removeChild(removeItem);
+
+        //removeItem = document.getElementsByName("_csrf")[0];
+        //removeItem.parentNode.removeChild(removeItem);
+
+        messageForm.action='/home';
+    }
+</script>
+</html>

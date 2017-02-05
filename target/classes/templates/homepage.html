@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+
+<h1>Home</h1>
+<!--
+<div sec:authentication="name">
+</div>
+-->
+Hello
+<span sec:authentication="principal.username"></span>
+<br></br>
+<form name="f1" action="#" th:action="@{/createmessage}" method="GET">
+<!--<form name=f1 method=post action=/createmessage>-->
+    <input type='submit' value='Create message' />
+
+    <input type='submit' value='View messages' onclick="f1.action='/messages';  return true;"/>
+    <input type='submit' value='Search' onclick="f1.action='/searchform';  return true;"/>
+    <input type='submit' value='Change password' onclick="f1.action='/changepassword';  return true;"/>
+    <input type='submit' value='Log out' onclick="f1.action='/logout';  return true;"/>
+</form>
+
+<p></p>
+</body>
+</html>
