@@ -3,8 +3,9 @@ This is a simple application that allows registered user to send messages to to 
 messages and change account password.
 The project is available at https://github.com/snabu/cybersecurity-base
 ## Running the program
-Clone the project and open in IDE (tested with Netbeans and IntelliJ)
-http://localhost:8080
+Clone the project and open in IDE (tested with Netbeans and IntelliJ) and run
+
+The application is available at http://localhost:8080
 
 There are two predefined users available:
 username: testuser1, password: 12345
