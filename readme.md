@@ -12,7 +12,7 @@ username: testuser1, password: 12345
 username: testuser2, password: 12345
 
 # Finding vulnerabilities
-Running OWASP ZAP first as a proxy and then running active scan with user correctly configured we get alerts for
+Running OWASP ZAP first as a proxy and then running active scan with correctly configured user  we get alerts for
 * SQL injection in search form
 * Cookie no HTTPOnly flag
 * Cross Site Scripting
