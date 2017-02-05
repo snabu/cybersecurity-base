@@ -28,13 +28,14 @@ First login to application using testuser1
 * using different browser login as testuser2, go to messages, select message "xss", alert window pops up showing JSESSIONID. So XSS works and we also notice
 that the sessionID is predictable resulting __A2__   
 
-fix: SessionId generation is defined in file TomcatCustomConfiguration. Remove the file from project as it is not needed. Removing the file also sets session 
+Fix: SessionId generation is defined in file TomcatCustomConfiguration. Remove the file from project as it is not needed. Removing the file also sets session 
 cookie http-only by default. To fix XSS vulnerability open file messageview.html replace  `th:utext ` with  `th:text `, additionally can check input data in function 
  `submitForm(...) ` in file MessageController
 
 ### Issue 3 CSRF (A8)
-We noticed earlier that the application has CSRF culnerability
-fix: in SecurityConfiguration.java delete line   `http.csrf().disable(); ` Password change should also be modified to check the current password before changing the
+We noticed earlier that the application has CSRF vulnerability
+
+Fix: in SecurityConfiguration.java delete line   `http.csrf().disable(); ` Password change should also be modified to check the current password before changing the
 password
 
 ### Issue 4 and 5 SQL Injection (A1) and passwords stored in plaintext (A6)
