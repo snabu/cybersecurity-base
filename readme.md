@@ -32,13 +32,13 @@ Fix: SessionId generation is defined in file TomcatCustomConfiguration. Remove t
 cookie http-only by default. To fix XSS vulnerability open file messageview.html replace  `th:utext ` with  `th:text `, additionally can check input data in function 
  `submitForm(...) ` in file MessageController
 
-### Issue 3 CSRF (A8)
+### Issue 3: CSRF (A8)
 We noticed earlier that the application has CSRF vulnerability
 
 Fix: in SecurityConfiguration.java delete line   `http.csrf().disable(); ` Password change should also be modified to check the current password before changing the
 password
 
-### Issue 4 and 5 SQL Injection (A1) and passwords stored in plaintext (A6)
+### Issue 4 and 5: SQL Injection (A1) and passwords stored in plaintext (A6)
 * Go to home->search
 * based on page source we make educated guess that the query requires two columns
 * enter  `test' UNION SELECT table_name, table_name FROM information_schema.tables;-- ` and click search, we can now see all table names so application
@@ -50,7 +50,7 @@ usernames and passwords in plaintext resulting __(A6)__.
 Fix: in  `SearchController.java ` modify function  `String search(...) ` and replace with parametrized query or use jpa queries. In  `SecurityConfiguration.java ` 
 remove  `PlaintextPasswordEncoder ` and enable proper passwordencoder
 
-### Issue 6 Insecure Direct object references (A4)
+### Issue 6: Insecure Direct object references (A4)
 * create new user and log in
 * go to messages, no messages sent or received
 * change URL to  `http://localhost:8080/messages/view/1 `
@@ -59,13 +59,13 @@ remove  `PlaintextPasswordEncoder ` and enable proper passwordencoder
 Fix: in MessageController.java modify function showMessage to check that the user is either message sender or recipient __(A4)__
 
 
-### Issue 7 Misconfiguration (A5)
+### Issue 7: Misconfiguration (A5)
 * Enter url http://localhost:8080/h2-console and notice that the h2-console is enabled __(A5)__
  
 Fix: remove h2-console from  `authorizeRequests.antMatchers() ` in file  `SecurityConfiguration.java `, remove also  `http.headers().frameOptions().disable(); ` 
 set  `spring.h2.console.enabled = false ` in  `appliction.properties` file. Also default pwd should be changed 
 
-### Issue 8 bonus (A4, A5)
+### Issue 8: bonus (A4, A5)
 * Go to view message, select message and check the source of resulting page. There's commented out piece of HTML for modify message functionality
 * Using the endpoint defined
 in commented out code we can modify any message as long as logged in.
