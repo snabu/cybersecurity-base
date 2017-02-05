@@ -1,9 +1,9 @@
 # Introduction
 This is a simple application that allows registered user to send messages to to other users. User can see received and sent messages, search received
 messages and change account password.
-The project is available at 
+The project is available at https://github.com/snabu/cybersecurity-base
 ## Running the program
-
+Clone the project and open in IDE (tested with Netbeans and IntelliJ)
 http://localhost:8080
 
 There are two predefined users available:
@@ -23,7 +23,7 @@ First login to application using testuser1
 
 ### Issue 1 and 2: Broken session management (A2) and XSS (A3)
 * select "crete message" 
-* recipient: testuser2, subject xss, message  `<script>alert(document.cookie);</script> 
+* recipient: testuser2, subject xss, message  `<script>alert(document.cookie);</script>` 
 * using different browser login as testuser2, go to messages, select message "xss", alert window pops up showing JSESSIONID. So XSS works and we also notice
 that the sessionID is predictable resulting __A2__   
 

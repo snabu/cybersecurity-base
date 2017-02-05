@@ -84,11 +84,10 @@
                     </formats>
                 </configuration>
             </plugin>
-
+<!--
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <!-- assuming that we do not have maven 3.1 yet -->
                 <version>1.4.2</version>
                 <executions>
                     <execution>
@@ -98,6 +97,7 @@
                     </execution>
                 </executions>
             </plugin>
+-->
         </plugins>
     </build>
 </project>
